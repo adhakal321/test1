@@ -1,1 +1,1 @@
-select current_date()
+CREATE OR REPLACE DATABASE <<DBS>>_<<DATABASE_NAME>> CLONE KEA_<<DBS>>;
