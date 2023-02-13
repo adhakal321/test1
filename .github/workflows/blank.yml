@@ -17,8 +17,13 @@ on:
         - SANDBOX_ROMENIA
       DBS:
         description: 'Environment to run tests against'
-        type: environment
         required: true
+        default: 'Dev'
+        type: choice
+        options:
+        - RAW
+        - RAW+REFINED
+        - RAW+REFINED+PUBLISHED
 
 jobs:
   log-the-inputs:
