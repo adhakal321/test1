@@ -66,3 +66,6 @@ jobs:
       - name: Get schema against Snowflake
         run:  ~/snowflake/snowsql -f schema.sql | sed 's/\t/,/g' > schema.txt
         
+      - name: Apply Permission
+        run:  ~/snowflake/snowsql -f schema.txt;
+        
