@@ -51,7 +51,5 @@ jobs:
       - name: Test installation
         run:  ~/snowflake/snowsql -v
       
-
-      - name: Clone database
-        run: |
-         snowsql -a $SNOWSQL_ACCOUNT -u $SNOWSQL_USER -p $SNOWSQL_PASSWORD -c "clone database <source_database> to <target_database>;"
+      - name: Execute SQL against Snowflake
+        run:  ~/snowflake/snowsql -f code.sql;
