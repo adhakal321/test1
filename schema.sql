@@ -1,1 +1,1 @@
-select schema_name from RAW_SANDBOX_SAMI.information_schema.schemata where schema_name <>'INFORMATION_SCHEMA';
+select 'GRANT OWNERSHIP ON SCHEMA RAW_SANDBOX_SAMI.'||schema_name||' TO ROLE DATA_ENGINEERS REVOKE CURRENT GRANTS;' as Schema_Privileage from information_schema.schemata where schema_name <>'INFORMATION_SCHEMA';
