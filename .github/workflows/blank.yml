@@ -25,8 +25,8 @@ on:
         - RAW+REFINED
         - RAW+REFINED+PUBLISHED
 env:
-  SNOWSQL_ACCOUNT: ${{ secrets.SNOWSQL_ACCOUNT }}
-  SNOWSQL_USER: ${{ variables.SNOWSQL_USER }}
+  SNOWSQL_ACCOUNT:  ${{ vars.SNOWSQL_ACCOUNT }}
+  SNOWSQL_USER: ${{ vars.SNOWSQL_USER }}
   SNOWSQL_PASSWORD: ${{ variables.SNOWSQL_PASSWORD }}
   
 jobs:
