@@ -60,8 +60,8 @@ jobs:
       - name: Test installation
         run:  ~/snowflake/snowsql -v
       
-      #- name: Execute SQL against Snowflake
-      #  run:  ~/snowflake/snowsql -f code.sql;
+      - name: Execute SQL against Snowflake
+        run:  ~/snowflake/snowsql -f code.sql;
         
       - name: Get schema against Snowflake
         run:  ~/snowflake/snowsql -f schema.sql | sed 's/\t/,/g' > schema.txt
