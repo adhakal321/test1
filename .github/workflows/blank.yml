@@ -24,7 +24,11 @@ on:
         - RAW
         - RAW+REFINED
         - RAW+REFINED+PUBLISHED
-
+env:
+  SNOWSQL_ACCOUNT: ${{ secrets.SNOWSQL_ACCOUNT }}
+  SNOWSQL_USER: ${{ secrets.SNOWSQL_USER }}
+  SNOWSQL_PASSWORD: ${{ secrets.SNOWSQL_PASSWORD }}
+  
 jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
@@ -36,3 +40,18 @@ jobs:
           YourSandbox: ${{ inputs.SandBox }}
           Databases: ${{ inputs.DBS }}
           
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up snowsql
+        uses: actions/setup-python@v2
+        with:
+         python-version: 3.7
+
+      - name: Install snowsql
+        run: |
+          python -m pip install snowsql
+
+      - name: Clone database
+        run: |
+         snowsql -a $SNOWSQL_ACCOUNT -u $SNOWSQL_USER -p $SNOWSQL_PASSWORD -c "clone database <source_database> to <target_database>;"
