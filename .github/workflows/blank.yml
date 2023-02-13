@@ -30,7 +30,7 @@ env:
   SNOWSQL_PASSWORD: ${{ secrets.SNOWSQL_PASSWORD }}
   
 jobs:
-  log-the-inputs:
+  Clone-the-databases:
     runs-on: ubuntu-latest
     steps:
       - run: |
