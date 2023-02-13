@@ -30,9 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
+          echo "box: $SandBox"
+          echo "DBs: $DBS"
         env:
           YourSandbox: ${{ inputs.SandBox }}
           Databases: ${{ inputs.DBS }}
