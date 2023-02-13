@@ -43,14 +43,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up snowsql
-        uses: actions/setup-python@v2
-        with:
-         python-version: 3.8
-
-      - name: Install snowsql
-        run: |
-          python -m pip install snowsql
+      - name: Download SnowSQL
+        run:  curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.9-linux_x86_64.bash
+      - name: Install SnowSQL
+        run: SNOWSQL_DEST=~/snowflake SNOWSQL_LOGIN_SHELL=~/.profile bash snowsql-1.2.9-linux_x86_64.bash
+      - name: Test installation
+        run:  ~/snowflake/snowsql -v
+      
 
       - name: Clone database
         run: |
