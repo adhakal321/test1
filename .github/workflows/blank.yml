@@ -26,8 +26,8 @@ on:
         - RAW+REFINED+PUBLISHED
 env:
   SNOWSQL_ACCOUNT: ${{ secrets.SNOWSQL_ACCOUNT }}
-  SNOWSQL_USER: ${{ secrets.SNOWSQL_USER }}
-  SNOWSQL_PASSWORD: ${{ secrets.SNOWSQL_PASSWORD }}
+  SNOWSQL_USER: ${{ variables.SNOWSQL_USER }}
+  SNOWSQL_PASSWORD: ${{ variables.SNOWSQL_PASSWORD }}
   
 jobs:
   Clone-the-databases:
