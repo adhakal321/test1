@@ -62,3 +62,6 @@ jobs:
       
       - name: Execute SQL against Snowflake
         run:  ~/snowflake/snowsql -f code.sql;
+        
+      - name: Execute SQL against Snowflake
+        run:  ~/snowflake/snowsql -f schema.sql;
