@@ -43,6 +43,14 @@ jobs:
           
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Find and replace
+        run: |
+          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' code.sql
+          
+        shell: pwsh
+        
+        # working-directory: ${{ inputs.working-directory }}
 
       - name: Download SnowSQL
         run:  curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.9-linux_x86_64.bash
