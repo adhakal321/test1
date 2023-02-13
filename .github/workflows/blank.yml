@@ -27,7 +27,7 @@ on:
 env:
   SNOWSQL_ACCOUNT:  ${{ vars.SNOWSQL_ACCOUNT }}
   SNOWSQL_USER: ${{ vars.SNOWSQL_USER }}
-  SNOWSQL_PASSWORD: ${{ variables.SNOWSQL_PASSWORD }}
+  SNOWSQL_PASSWORD: ${{ secrets.SNOWSQL_PASSWORD }}
   
 jobs:
   Clone-the-databases:
