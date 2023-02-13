@@ -1,25 +1,21 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Clone Snowflake Database
 
 # Controls when the workflow will run
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      SandBox:
+        description: 'Your Sandbox Name'
         required: true
-        default: 'warning'
+        default: 'Dev'
         type: choice
         options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
+        - SANDBOX_SAMI
+        - SANDBOX_JUN
+        - SANDBOX_ROMENIA
+      DBS:
         description: 'Environment to run tests against'
         type: environment
         required: true
@@ -33,6 +29,6 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
+          YourSandbox: ${{ inputs.SandBox }}
+          Databases: ${{ inputs.DBS }}
+          
