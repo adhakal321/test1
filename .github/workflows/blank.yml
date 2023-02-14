@@ -83,6 +83,8 @@ jobs:
           sed -i 1d stages.txt
           sed -i 1d stages.txt
           sed -i 1d stages.txt
+          sed -i '$ d' stages.txt
+          sed -i '$ d' stages.txt
           
       - name: Fix stages
         run:  ~/snowflake/snowsql -f stages.txt;
