@@ -74,11 +74,11 @@ jobs:
         
       - name: Find and replace in stages
         run: |
-          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' stage.sql
-          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' stage.sql
+          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' .github/workflows/stage.sql
+          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' .github/workflows/stage.sql
           
       - name: Get all the stages against Snowflake
-        run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > stages.txt
+        run:  ~/snowflake/snowsql -f .github/workflows/stage.sql | sed 's/\t/,/g' > stages.txt
         
       - name: Find and replace
         run: |
