@@ -72,6 +72,11 @@ jobs:
       # - name: Execute SQL against Snowflake
       # run:  ~/snowflake/snowsql -f code.sql;
         
+      - name: Find and replace in stages
+        run: |
+          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' stages.sql
+          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' stages.sql
+          
       - name: Get all the stages against Snowflake
         run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > stages.txt
         
@@ -85,8 +90,6 @@ jobs:
           sed -i 1d stages.txt
           sed -i '$ d' stages.txt
           sed -i '$ d' stages.txt
-          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' stages.txt
-          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' stages.txt
           
       - name: Fix stages
         run:  ~/snowflake/snowsql -f stages.txt;
