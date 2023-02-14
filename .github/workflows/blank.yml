@@ -79,6 +79,10 @@ jobs:
         run: |
           sed -i 's/|/ /g' stages.txt
           sed -i 1d stages.txt
+          sed -i 1d stages.txt
+          sed -i 1d stages.txt
+          sed -i 1d stages.txt
+          sed -i 1d stages.txt
           
       - name: Fix stages
         run:  ~/snowflake/snowsql -f stages.txt;
