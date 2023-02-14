@@ -72,7 +72,7 @@ jobs:
       - name: Execute SQL against Snowflake
         run:  ~/snowflake/snowsql -f code.sql;
         
-      - name: Get schema against Snowflake
+      - name: Get all the stages against Snowflake
         run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > stages.txt
         
       - name: Find and replace
@@ -80,6 +80,6 @@ jobs:
           sed -i 's/|/ /g' stages.txt
           sed -i 1d stages.txt
           
-      - name: Apply Permission
+      - name: Fix stages
         run:  ~/snowflake/snowsql -f stages.txt;
         
