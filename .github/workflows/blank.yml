@@ -12,18 +12,27 @@ on:
         default: 'Dev'
         type: choice
         options:
-        - SANDBOX_SAMI
-        - SANDBOX_JUN
-        - SANDBOX_ROMENIA
+        - ADHAKAL
+        - APURVA
+        - CRYSTAL
+        - DHAMO
+        - JUN
+        - ROMENIA
+        - Ravi
+        - SAMI
       DBS:
         description: 'Environment to run tests against'
         required: true
-        default: 'Dev'
+        default: 'RAW'
         type: choice
         options:
         - RAW
-        - RAW+REFINED
-        - RAW+REFINED+PUBLISHED
+        - REFINED
+        - PUBLISHED
+        - DISTRIPUTION
+        - LANDING
+        - INTEGRATION
+        
 env:
   SNOWSQL_DEST: ~/snowflake
   SNOWSQL_ACCOUNT:  ${{ vars.SNOWSQL_ACCOUNT }}
