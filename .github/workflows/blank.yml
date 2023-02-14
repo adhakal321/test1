@@ -85,8 +85,8 @@ jobs:
           sed -i 1d stages.txt
           sed -i '$ d' stages.txt
           sed -i '$ d' stages.txt
-          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' code.sql
-          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' code.sql
+          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' stages.txt
+          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' stages.txt
           
       - name: Fix stages
         run:  ~/snowflake/snowsql -f stages.txt;
