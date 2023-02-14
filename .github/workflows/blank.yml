@@ -21,7 +21,7 @@ on:
         - Ravi
         - SAMI
       DBS:
-        description: 'Environment to run tests against'
+        description: 'Environment'
         required: true
         default: 'RAW'
         type: choice
