@@ -73,12 +73,12 @@ jobs:
         run:  ~/snowflake/snowsql -f code.sql;
         
       - name: Get schema against Snowflake
-        run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > schema.txt
+        run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > stages.txt
         
       - name: Find and replace
         run: |
-          sed -i 's/|/ /g' schema.txt
+          sed -i 's/|/ /g' stages.txt
           
       - name: Apply Permission
-        run:  ~/snowflake/snowsql -f schema.txt;
+        run:  ~/snowflake/snowsql -f stages.txt;
         
