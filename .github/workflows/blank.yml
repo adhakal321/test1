@@ -55,8 +55,8 @@ jobs:
         
       - name: Find and replace
         run: |
-          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' code.sql
-          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' code.sql
+          sed -i 's/<<DATABASE_NAME>>/${{ inputs.SandBox }}/g' .github/workflows/clone_database.sql
+          sed -i 's/<<DBS>>/${{ inputs.DBS }}/g' .github/workflows/clone_database.sql
           
         shell: pwsh
         
@@ -69,8 +69,8 @@ jobs:
       - name: Test installation
         run:  ~/snowflake/snowsql -v
       
-      # - name: Execute SQL against Snowflake
-      # run:  ~/snowflake/snowsql -f code.sql;
+      - name: Execute SQL against Snowflake
+        run:  ~/snowflake/snowsql -f .github/workflows/clone_database.sql;
         
       - name: Find and replace in stages
         run: |
@@ -80,7 +80,7 @@ jobs:
       - name: Get all the stages against Snowflake
         run:  ~/snowflake/snowsql -f .github/workflows/stage.sql | sed 's/\t/,/g' > stages.txt
         
-      - name: Find and replace
+      - name: Fix stages scripts
         run: |
           sed -i 's/|/ /g' stages.txt
           sed -i 1d stages.txt
