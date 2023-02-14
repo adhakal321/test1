@@ -73,7 +73,7 @@ jobs:
         run:  ~/snowflake/snowsql -f code.sql;
         
       - name: Get schema against Snowflake
-        run:  ~/snowflake/snowsql -f schema.sql | sed 's/\t/,/g' > schema.txt
+        run:  ~/snowflake/snowsql -f stage.sql | sed 's/\t/,/g' > schema.txt
         
       - name: Find and replace
         run: |
