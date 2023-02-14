@@ -78,6 +78,7 @@ jobs:
       - name: Find and replace
         run: |
           sed -i 's/|/ /g' stages.txt
+          sed -i 1d stages.txt
           
       - name: Apply Permission
         run:  ~/snowflake/snowsql -f stages.txt;
